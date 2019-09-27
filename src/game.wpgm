@@ -11,8 +11,32 @@ program farmville {
 
 	//  VISUALES
  	game.addVisualCharacter(hector)
- 	game.addVisualIn(new Maiz(), game.at(1, 1))
+ 	//game.addVisualIn(new Maiz(), game.at(1, 1))
  	
+ 	//ACCIONES DE HECTOR
+ 	keyboard.m().onPressDo {
+ 		game.addVisualIn(new Maiz(), hector.position())
+ 	}
+ 	
+ 	keyboard.t().onPressDo {
+ 		game.addVisualIn(new Trigo(), hector.position())
+ 	}
+ 	
+ 	keyboard.o().onPressDo {
+ 		const t = new Tomaco()
+ 		t.position(hector.position())
+
+ 		game.addVisual(t)
+ 	}
+ 	
+ 	keyboard.r().onPressDo {
+ 		hector.regar()
+ 	}
+ 	
+ 	keyboard.c().onPressDo {
+ 		hector.cosechar()
+ 	}
  	//  COMIENZA
 	game.start()
 }
+	
